@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import 'providers.dart';
 import 'screens/home_screen.dart';
@@ -9,6 +10,7 @@ import 'widgets/loading_character.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  MobileAds.instance.initialize();
   runApp(const JokeAlarmApp());
 }
 

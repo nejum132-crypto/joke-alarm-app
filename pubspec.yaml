@@ -47,6 +47,9 @@ dependencies:
   # State management
   flutter_riverpod: ^2.6.1
 
+  # Ads (monetization)
+  google_mobile_ads: ^5.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

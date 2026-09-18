@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../providers.dart';
+import '../widgets/banner_ad_widget.dart';
 import '../widgets/on_off_toggle.dart';
 import 'character_tab.dart';
 import 'favorites_tab.dart';
@@ -84,6 +85,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen>
           FavoritesTab(),
         ],
       ),
+      bottomNavigationBar: const SafeArea(child: BannerAdWidget()),
     );
   }
 }
