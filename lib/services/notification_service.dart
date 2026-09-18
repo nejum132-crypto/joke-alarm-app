@@ -64,8 +64,6 @@ class NotificationService {
         AndroidFlutterLocalNotificationsPlugin>();
     final notifGranted =
         await androidImpl?.requestNotificationsPermission() ?? true;
-    final exactAlarmGranted =
-        await androidImpl?.requestExactAlarmsPermission() ?? true;
 
     final iosImpl = _plugin.resolvePlatformSpecificImplementation<
         IOSFlutterLocalNotificationsPlugin>();
@@ -76,7 +74,7 @@ class NotificationService {
         ) ??
         true;
 
-    return notifGranted && exactAlarmGranted && iosGranted;
+    return notifGranted && iosGranted;
   }
 
   Future<void> _schedule(int id, tz.TZDateTime when, String content) {
@@ -95,7 +93,7 @@ class NotificationService {
         ),
         iOS: const DarwinNotificationDetails(),
       ),
-      androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
+      androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
       uiLocalNotificationDateInterpretation:
           UILocalNotificationDateInterpretation.absoluteTime,
     );
